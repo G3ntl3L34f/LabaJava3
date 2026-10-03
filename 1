@@ -1,17 +1,27 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
+import java.util.Scanner;
 
-public class dva {
-    public static int[] removeAll(int[] a, int x) {
-    int write = 0;
-    for (int v : a) {
-        if (v != x) {
-            a[write++] = v;
+public class RemoveOccurrences {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
         }
+        int x = in.nextInt();
+
+        int write = 0;
+        for (int i = 0; i < n; i++) {
+            if (a[i] != x) {
+                a[write++] = a[i];
+            }
+        }
+
+        // Вывод оставшихся элементов без пропусков
+        for (int i = 0; i < write; i++) {
+            if (i > 0) System.out.print(" ");
+            System.out.print(a[i]);
+        }
+        System.out.println();
     }
-    int[] result = new int[write];
-    System.arraycopy(a, 0, result, 0, write);
-    return result;
-}
 }
